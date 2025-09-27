@@ -59,7 +59,7 @@ export function MethodCard({
     >
       {/* Card */}
       <div
-        className={`${method.bgColor} ${method.borderColor} border-2 rounded-xl p-6 hover:border-gray-300 transition-all duration-200`}
+        className={`${method.bgColor} ${method.borderColor} border-2 rounded-xl p-5 md:p-6 hover:border-gray-300 transition-all duration-200`}
       >
         {/* Serial Number Badge */}
         <div className="absolute -top-3 -left-3 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center border-2 border-gray-100">

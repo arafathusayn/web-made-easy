@@ -7,7 +7,7 @@ export function Footer() {
         <Zap className="w-5 h-5 mr-2" />
         <span className="font-semibold">
           Master all <span className="font-bold">20 techniques</span> to become
-          a JavaScript expert
+          a JS expert
         </span>
       </div>
     </div>

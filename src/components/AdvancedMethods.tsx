@@ -39,12 +39,12 @@ export function AdvancedMethods({
         whileTap={{ scale: 0.995, transition: { duration: 0.1 } }}
       >
         <div className="flex items-center justify-between">
-          <h2 className="text-2xl font-semibold text-gray-900 flex items-center">
+          <h2 className="text-sm md:text-2xl font-semibold text-gray-900 flex items-center">
             <div className="bg-gradient-to-r from-slate-600 to-slate-700 p-2 rounded-lg mr-4 shadow-sm">
               <Settings className="w-6 h-6 text-white" />
             </div>
             Advanced Methods
-            <span className="ml-4 px-3 py-1 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-full text-sm font-semibold shadow-sm">
+            <span className="ml-4 px-3 py-1 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-full text-xs md:text-sm font-semibold shadow-sm">
               +16 more
             </span>
           </h2>
@@ -62,7 +62,7 @@ export function AdvancedMethods({
         {isOpen && (
           <motion.div
             ref={contentRef}
-            className="bg-gray-50 rounded-xl p-8 border-2 border-gray-200 overflow-hidden"
+            className="bg-gray-50 rounded-xl p-2 md:p-8 border-2 border-gray-200 overflow-hidden"
             initial={{ opacity: 0, height: 0, scale: 0.95 }}
             animate={{
               opacity: 1,
