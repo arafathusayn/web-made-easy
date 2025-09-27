@@ -10,7 +10,7 @@
   },
   "scripts": {
     "dev": "bun --hot src/**/*.html",
-    "start": "NODE_ENV=production bun src/**/*.html",
+    "start": "NODE_ENV=production PORT=5025 bun src/**/*.html",
     "build": "bun run build.ts"
   },
   "dependencies": {
