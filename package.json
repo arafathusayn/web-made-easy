@@ -11,13 +11,16 @@
   "scripts": {
     "dev": "bun --hot src/**/*.html",
     "start": "NODE_ENV=production PORT=5025 bun src/**/*.html",
-    "build": "bun run build.ts"
+    "build": "bun run build.ts",
+    "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx,css,html}\""
   },
   "dependencies": {
     "bun-plugin-tailwind": "^0.0.15",
+    "framer-motion": "^12.23.22",
     "lucide-react": "^0.544.0",
     "react": "^19",
     "react-dom": "^19",
+    "shiki": "^3.13.0",
     "tailwindcss": "^4.1.11"
   },
   "devDependencies": {

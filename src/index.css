@@ -7,3 +7,22 @@
     animation: none !important;
   }
 }
+
+.shiki-container pre {
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  overflow-x: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+.shiki-container pre::-webkit-scrollbar {
+  display: none; /* WebKit */
+}
+.shiki-container code {
+  font-family:
+    ui-monospace, SFMono-Regular, "SF Mono", Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
