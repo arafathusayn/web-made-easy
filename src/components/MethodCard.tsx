@@ -1,6 +1,10 @@
+import { lazy, Suspense } from "react";
 import { motion } from "framer-motion";
 import { Code } from "lucide-react";
-import { CodeBlock } from "./CodeBlock";
+
+const CodeBlock = lazy(() =>
+  import("./CodeBlock").then((mod) => ({ default: mod.CodeBlock })),
+);
 
 interface Method {
   id: string;
@@ -125,7 +129,13 @@ export function MethodCard({
               </motion.button>
             </div>
             <div>
-              <CodeBlock code={method.example} language="javascript" />
+              <Suspense
+                fallback={
+                  <div className="text-gray-400 text-sm py-4">Loading...</div>
+                }
+              >
+                <CodeBlock code={method.example} language="javascript" />
+              </Suspense>
             </div>
           </div>
         )}

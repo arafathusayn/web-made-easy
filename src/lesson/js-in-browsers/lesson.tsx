@@ -1,11 +1,25 @@
-import { useReducer } from "react";
+import { useReducer, lazy, Suspense } from "react";
 import { Terminal, Bookmark, EarthIcon, Code } from "lucide-react";
 import { MethodCard } from "../../components/MethodCard";
-import { AdvancedMethods } from "../../components/AdvancedMethods";
 import { Hero } from "../../components/Hero";
-import { SecurityNotice } from "../../components/SecurityNotice";
-import { Footer } from "../../components/Footer";
-import { Quote } from "../../components/Quote";
+
+// Lazy load below-the-fold components
+const AdvancedMethods = lazy(() =>
+  import("../../components/AdvancedMethods").then((mod) => ({
+    default: mod.AdvancedMethods,
+  })),
+);
+const SecurityNotice = lazy(() =>
+  import("../../components/SecurityNotice").then((mod) => ({
+    default: mod.SecurityNotice,
+  })),
+);
+const Footer = lazy(() =>
+  import("../../components/Footer").then((mod) => ({ default: mod.Footer })),
+);
+const Quote = lazy(() =>
+  import("../../components/Quote").then((mod) => ({ default: mod.Quote })),
+);
 
 const initialState = {
   isAdvancedOpen: false,
@@ -172,18 +186,26 @@ console.log({
             </div>
           </div>
 
-          <AdvancedMethods
-            isOpen={isAdvancedOpen}
-            onToggle={() => dispatch({ type: "TOGGLE_ADVANCED" })}
-            methods={advancedMethods}
-          />
+          <Suspense fallback={<div className="py-4" />}>
+            <AdvancedMethods
+              isOpen={isAdvancedOpen}
+              onToggle={() => dispatch({ type: "TOGGLE_ADVANCED" })}
+              methods={advancedMethods}
+            />
+          </Suspense>
 
-          <SecurityNotice />
+          <Suspense fallback={<div className="py-4" />}>
+            <SecurityNotice />
+          </Suspense>
 
-          <Footer />
+          <Suspense fallback={<div className="py-4" />}>
+            <Footer />
+          </Suspense>
         </div>
 
-        <Quote />
+        <Suspense fallback={<div className="py-4" />}>
+          <Quote />
+        </Suspense>
       </div>
     </div>
   );
