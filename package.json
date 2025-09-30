@@ -10,7 +10,7 @@
   },
   "scripts": {
     "dev": "vite dev",
-    "build": "vite build",
+    "build": "rm -rf dist && vite build",
     "start": "bun server.ts",
     "preview": "bun run build && bun run start",
     "typecheck": "tsc --noEmit",

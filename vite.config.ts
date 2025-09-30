@@ -14,6 +14,14 @@ export default defineConfig({
         enabled: true,
         concurrency: cpus().length,
       },
+      pages: [
+        {
+          path: "/",
+        },
+        {
+          path: "/lesson/js-in-browsers/",
+        },
+      ],
     }),
     viteReact(),
   ],
