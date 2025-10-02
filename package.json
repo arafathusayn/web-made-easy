@@ -10,7 +10,7 @@
   },
   "scripts": {
     "dev": "vite dev",
-    "build": "rm -rf dist && vite build",
+    "build": "rm -rf dist; vite build",
     "start": "bun server.ts",
     "preview": "bun run build && bun run start",
     "typecheck": "tsc --noEmit",
@@ -20,7 +20,6 @@
     "@tanstack/react-router": "^1.132.25",
     "@tanstack/react-start": "^1.132.25",
     "@vitejs/plugin-react": "^5.0.4",
-    "bun-plugin-tailwind": "^0.0.15",
     "framer-motion": "^12.23.22",
     "hono": "^4.9.9",
     "lucide-react": "^0.544.0",
@@ -36,6 +35,9 @@
     "@tanstack/react-router-devtools": "^1.132.25",
     "@types/bun": "latest",
     "@types/react": "^19",
-    "@types/react-dom": "^19"
+    "@types/react-dom": "^19",
+    "babel-plugin-react-compiler": "^19.1.0-rc.3",
+    "vite-plugin-beasties": "^0.3.5",
+    "vite-plugin-sitemap": "^0.8.2"
   }
 }
