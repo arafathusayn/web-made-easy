@@ -17,13 +17,14 @@ interface Method {
   gradient: string;
   bgColor: string;
   borderColor: string;
+  language?: string;
 }
 
 interface MethodCardProps {
   method: Method;
   index: number;
   isExpanded: boolean;
-  onToggle: (id: string, event: React.MouseEvent) => void;
+  onToggle: (id: string, event: React.MouseEvent | React.KeyboardEvent) => void;
   onCopy: (text: string) => void;
 }
 
@@ -39,6 +40,12 @@ export function MethodCard({
       key={method.id}
       className="relative group cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-xl"
       onClick={(e) => onToggle(method.id, e)}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          onToggle(method.id, e);
+        }
+      }}
       tabIndex={0}
       initial={{ opacity: 0, y: 30, scale: 0.95 }}
       animate={{
@@ -134,7 +141,10 @@ export function MethodCard({
                   <div className="text-gray-400 text-sm py-4">Loading...</div>
                 }
               >
-                <CodeBlock code={method.example} language="javascript" />
+                <CodeBlock
+                  code={method.example}
+                  language={method.language || "javascript"}
+                />
               </Suspense>
             </div>
           </div>

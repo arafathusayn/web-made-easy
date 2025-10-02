@@ -44,9 +44,12 @@ export function AdvancedMethods({
               <Settings className="w-6 h-6 text-white" />
             </div>
             Advanced Methods
-            <span className="ml-4 px-3 py-1 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-full text-xs md:text-sm font-semibold shadow-sm">
-              +16 more
-            </span>
+            {methods.reduce((sum, cat) => sum + cat.methods.length, 0) > 0 && (
+              <span className="ml-4 px-3 py-1 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-full text-xs md:text-sm font-semibold shadow-sm">
+                +{methods.reduce((sum, cat) => sum + cat.methods.length, 0)}{" "}
+                more
+              </span>
+            )}
           </h2>
           <motion.div
             className="transform transition-transform duration-200 group-hover:scale-110"
@@ -92,7 +95,7 @@ export function AdvancedMethods({
             >
               {methods.map((category, idx) => (
                 <motion.div
-                  key={idx}
+                  key={category.category}
                   className="bg-white rounded-lg p-6 border border-gray-200 hover:shadow-md transition-all duration-200 hover:border-gray-300"
                   initial={{ opacity: 0, y: 25, scale: 0.9 }}
                   animate={{
@@ -117,8 +120,11 @@ export function AdvancedMethods({
                     {category.category}
                   </h3>
                   <ul className="space-y-3">
-                    {category.methods.map((method, methodIdx) => (
-                      <li key={methodIdx} className="flex items-start group">
+                    {category.methods.map((method) => (
+                      <li
+                        key={`${category.category}-${method}`}
+                        className="flex items-start group"
+                      >
                         <span className="w-2 h-2 bg-gray-400 rounded-full mt-2 mr-3 flex-shrink-0 group-hover:bg-blue-500 transition-colors"></span>
                         <span className="text-sm text-gray-700 group-hover:text-gray-900 transition-colors">
                           {method}
