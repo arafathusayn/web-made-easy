@@ -64,7 +64,7 @@ export function Article() {
   const [activeExample, dispatch] = useReducer(articleReducer, null);
 
   const handleExampleClick = useCallback(
-    (id: string, event: React.MouseEvent) => {
+    (id: string, event: React.MouseEvent | React.KeyboardEvent) => {
       dispatch({
         type: "SET_ACTIVE_EXAMPLE",
         payload: activeExample === id ? null : id,
